@@ -18,4 +18,5 @@
   --teaser-tile-background-color-custom: var(--m-white);
   --emotion-pictures-with-title-bg-color-custom: var(--m-black);
   --emotion-pictures-with-title-bg-background-color-custom: var(--m-white);
+  --search-input-width: 10em;
 }
