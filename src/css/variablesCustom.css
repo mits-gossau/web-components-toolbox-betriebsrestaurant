@@ -23,4 +23,5 @@
   --emotion-pictures-with-video-bg-color-custom: var(--m-black);
   --emotion-pictures-with-video-bg-background-color-custom: var(--m-white);
   --emotion-pictures-with-title-bg-line-height-secondary-custom:1.5em;
+  --input-type-submit-margin: 0 0.5em 0 0;
 }
