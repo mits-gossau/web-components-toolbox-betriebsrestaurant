@@ -25,4 +25,6 @@
   --emotion-pictures-with-title-bg-line-height-secondary-custom:1.5em;
   --input-type-submit-margin: 0 0.5em 0 0;
   --teaser-tile-h5-margin-custom: 0 0 0.5em;
+  --picture-teaser-img-height-mobile: 15rem;
+  --emotion-pictures-with-video-bg-line-height-secondary-custom: auto;
 }
