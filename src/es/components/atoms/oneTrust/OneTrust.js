@@ -19,7 +19,11 @@ export default class OneTrust extends Shadow() {
   }
 
   connectedCallback() {
+    if (this.shouldRenderHTML()) {
+      this.renderHTML().then(() => {
         if (this.settingsLink) this.settingsLink.addEventListener('click', this.settingsLinkListener)
+      })
+    } else if (this.settingsLink) this.settingsLink.addEventListener('click', this.settingsLinkListener)
   }
 
   disconnectedCallback() {
@@ -37,6 +41,35 @@ export default class OneTrust extends Shadow() {
       }
     }
   }
+
+  /**
+   * evaluates if a render is necessary
+   */
+  shouldRenderHTML() {
+    return true;
+  }
+
+  /**
+   * Render HTML
+   * OneTrust loads its settings and we check whether we should display the link or not.
+   * The link opens the cookie settings in a modal window
+   */
+  async renderHTML() {
+    const span = document.createElement('span')
+    span.classList.add('ot-sdk-show-settings')
+    span.setAttribute('style', 'display: none !important;')
+    document.body.appendChild(span)
+
+    // only render link if OneTrust sets it to ‘visible’
+    if (self.getComputedStyle(span).getPropertyValue('visibility') === 'visible') {
+      this.html = `<a class="ot-sdk-show-settings">${this.linkText}</a>`
+    }
+
+    // cleanup
+    span.remove()
+  }
+
+  
 
   get id() {
     return this.getAttribute('id')
