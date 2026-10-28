@@ -19,11 +19,7 @@ export default class OneTrust extends Shadow() {
   }
 
   connectedCallback() {
-    if (this.shouldRenderHTML()) {
-      this.renderHTML().then(() => {
         if (this.settingsLink) this.settingsLink.addEventListener('click', this.settingsLinkListener)
-      })
-    } else if (this.settingsLink) this.settingsLink.addEventListener('click', this.settingsLinkListener)
   }
 
   disconnectedCallback() {
